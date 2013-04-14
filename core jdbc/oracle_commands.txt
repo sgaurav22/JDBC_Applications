@@ -1,0 +1,67 @@
+select * from tab; // to see all the tables from database for current user.
+// Creating Bind variable
+syntax : var/variable variable_name variable_datatype
+e.g : var vno number;
+ 
+// Assingning value to a bind variable
+symtax : exec/execute :variable_name variable_name:=value  
+e.g : execute/exec :eno := 5;
+
+// To see a bind variable in DB
+
+syntax : print variable_name or select :variable_name from dual;
+e.g : print vno;   or 	select :vno from dual;
+
+// To view the procedure 
+select text from user_source;
+
+// To see the errors 
+show errors;
+
+Procedures
+
+// To execute a procedure
+e.g : exec addition(:number1,:number2,:result);
+
+// To create a procedure with no arguments
+e.g :
+create or replace procedure myproc
+as
+begin
+	insert into emp values(3,'abc',3000);
+end myproc;
+/
+
+// To create a procedure with in arguments.
+// By default IN parameter is taken by variable. Weather we define it or not
+e.g :
+create or replace procedure in_myproc(
+eno number,name varchar2,salary number)
+as
+begin
+	insert into emp values(eno,name,salary);
+end in_myproc;
+/
+
+// To create a procedure with in and out both parameter
+e.g : 
+create or replace a procedure addition(
+no1 in number,no2 in number,result out number)
+as
+begin
+	result := no1+no2;
+end addition;
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
